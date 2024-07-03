@@ -1,0 +1,147 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #ff6b6b, #f0e130);
+    animation: backgroundAnimation 10s infinite;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(45deg, #ff6b6b, #f0e130);
+    }
+    50% {
+        background: linear-gradient(45deg, #42a5f5, #ffb74d);
+    }
+    100% {
+        background: linear-gradient(45deg, #ff6b6b, #f0e130);
+    }
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+.game-settings {
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s;
+}
+
+.mode-selection, .marker-selection {
+    margin-bottom: 10px;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    position: relative;
+    border-radius: 10px;
+}
+
+.cell:hover:before {
+    content: attr(data-hover);
+    position: absolute;
+    color: #d3d3d3;
+    z-index: -1;
+    font-size: 1.5em;
+}
+
+.cell:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.cell.x {
+    color: #ff5722;
+    animation: markerAnimation 0.5s;
+}
+
+.cell.o {
+    color: #03a9f4;
+    animation: markerAnimation 0.5s;
+}
+
+@keyframes markerAnimation {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+.game-info {
+    margin-top: 20px;
+    animation: fadeIn 2s;
+}
+
+.winner-message {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+    animation: slideIn 1s ease-out;
+}
+
+#restartButton, #startGameButton {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #4caf50;
+    color: white;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    animation: fadeIn 2.5s;
+}
+
+#restartButton:hover, #startGameButton:hover {
+    background-color: #45a049;
+}
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+    animation: fadeIn 3s;
+}
